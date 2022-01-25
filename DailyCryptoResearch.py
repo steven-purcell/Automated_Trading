@@ -27,6 +27,11 @@ pd.set_option('display.max_colwidth', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
+# Import client_id, client_secret, and user_agent from secure file below.
+##
+###
+####
+#####
 
 google_search_template = 'https://www.google.com/search?q={}+site%3Acoinmarketcap.com'
 
@@ -42,7 +47,7 @@ crypto_symbols = []
 
 reddit = praw.Reddit(client_id = client_id,
                      client_secret = client_secret,
-                     user_agent = user_ageent)
+                     user_agent = user_agent)
 
 posts = []
 symbols = []
