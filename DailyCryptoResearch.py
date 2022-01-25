@@ -35,7 +35,10 @@ pd.set_option('display.max_columns', None)
 
 google_search_template = 'https://www.google.com/search?q={}+site%3Acoinmarketcap.com'
 
-# CoinMarketCap_API_Key = 'daaf6299-d06e-4847-840d-0747dba078c8'
+# Import CoinMarketCap_API_Key from secure file
+##
+###
+####
 
 subreddits = ['CryptoCurrency', 'CryptoMarkets', 'CryptoCurrencies', 'AltStreetBets', 'CryptoCurrencyTrading', 'ico', 'BSCMoonShots',
               'defi', 'CryptoMoonShots', 'ShitcoinBets', 'CryptoMarsShots', 'WallStreetBetsCrypto', 'CryptocurrencyICO', 'CryptoMars',
