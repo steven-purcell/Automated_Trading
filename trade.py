@@ -1,5 +1,8 @@
 import alpaca_trade_api as tradeapi
 
+from variables import APCA_API_KEY_ID, APCA_API_SECRET_KEY
+
+
 ## https://github.com/alpacahq/alpaca-trade-api-python/
 
 URL = "https://paper-api.alpaca.markets/"
@@ -7,14 +10,7 @@ symbol = ""
 result = ""
 
 # Import API keys from secure file
-def get_api_keys():
-    
-    #TODO: Get keys from secure location here
-    ##
-    ###
-    ####
-    #####
-    return(None)
+
 
 # GET asset information
 def get_asset_information(symbol):
@@ -24,7 +20,7 @@ def get_asset_information(symbol):
     return(result)
 
 # POST buy order
-def buy_signal(symbol, qty):
+def buy_signal(symbol, qty): # Other params can be added to more granularly control the trade.
 
     result = tradeapi.submit_order(symbol = symbol,
                             qty = qty,       # Determine qty
@@ -50,7 +46,7 @@ def sell_signal(order_id):
 
     return(result)
 
-def close_all_positions():
+def close_all_positions(): # Sell and close all orders.
 
     result = tradeapi.cancel_all_orders()
 
