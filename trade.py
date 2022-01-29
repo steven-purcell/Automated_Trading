@@ -30,10 +30,6 @@ def get_asset_information(symbol):
 
     return(result)
 
-def get_asset(symbol):
-    
-    result = api.)
-
 # POST buy order
 def buy_signal(symbol, qty): # Other params can be added to more granularly control the trade.
 
@@ -60,7 +56,7 @@ def sell_signal(symbol, qty): # Other params can be added to more granularly con
 
     result = tradeapi.submit_order(symbol = symbol,
                             qty = qty,       # Determine qty
-                            side = "sel",
+                            side = "sell",
                             type = "market",
                             time_in_force = "day",
                             limit_price = None,

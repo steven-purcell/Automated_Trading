@@ -206,39 +206,39 @@ def bollinger_bands(data, trend_periods=20, close_col='<CLOSE>'):
 
     return data
 
-"""
-Chaikin Oscillator
-Source: http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:chaikin_oscillator
-Params: 
-    data: pandas DataFrame
-	periods_short: period for the shorter EMA (3 days recommended)
-	periods_long: period for the longer EMA (10 days recommended)
-	high_col: the name of the HIGH values column
-	low_col: the name of the LOW values column
-	close_col: the name of the CLOSE values column
-	vol_col: the name of the VOL values column
+# """
+# Chaikin Oscillator
+# Source: http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:chaikin_oscillator
+# Params: 
+#     data: pandas DataFrame
+# 	periods_short: period for the shorter EMA (3 days recommended)
+# 	periods_long: period for the longer EMA (10 days recommended)
+# 	high_col: the name of the HIGH values column
+# 	low_col: the name of the LOW values column
+# 	close_col: the name of the CLOSE values column
+# 	vol_col: the name of the VOL values column
     
-Returns:
-    copy of 'data' DataFrame with 'ch_osc' column added
-"""
-def chaikin_oscillator(data, periods_short=3, periods_long=10, high_col='<HIGH>',
-                       low_col='<LOW>', close_col='<CLOSE>', vol_col='<VOL>'):
-    ac = pd.Series([])
-    val_last = 0
+# Returns:
+#     copy of 'data' DataFrame with 'ch_osc' column added
+# """
+# def chaikin_oscillator(data, periods_short=3, periods_long=10, high_col='<HIGH>',
+#                        low_col='<LOW>', close_col='<CLOSE>', vol_col='<VOL>'):
+#     ac = pd.Series([])
+#     val_last = 0
 	
-    for index, row in data.iterrows():
-        if row[high_col] != row[low_col]:
-            val = val_last + ((row[close_col] - row[low_col]) - (row[high_col] - row[close_col])) / (row[high_col] - row[low_col]) * row[vol_col]
-        else:
-            val = val_last
-        ac.set_value(index, val)
-	val_last = val
+#     for index, row in data.iterrows():
+#         if row[high_col] != row[low_col]:
+#             val = val_last + ((row[close_col] - row[low_col]) - (row[high_col] - row[close_col])) / (row[high_col] - row[low_col]) * row[vol_col]
+#         else:
+#             val = val_last
+#         ac.set_value(index, val)
+# 	val_last = val
 
-    ema_long = ac.ewm(ignore_na=False, min_periods=0, com=periods_long, adjust=True).mean()
-    ema_short = ac.ewm(ignore_na=False, min_periods=0, com=periods_short, adjust=True).mean()
-    data['ch_osc'] = ema_short - ema_long
+#     ema_long = ac.ewm(ignore_na=False, min_periods=0, com=periods_long, adjust=True).mean()
+#     ema_short = ac.ewm(ignore_na=False, min_periods=0, com=periods_short, adjust=True).mean()
+#     data['ch_osc'] = ema_short - ema_long
 
-    return data
+#     return data
 
 """
 Typical Price
