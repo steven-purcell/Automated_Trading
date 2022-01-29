@@ -30,6 +30,10 @@ def get_asset_information(symbol):
 
     return(result)
 
+def get_asset(symbol):
+    
+    result = api.)
+
 # POST buy order
 def buy_signal(symbol, qty): # Other params can be added to more granularly control the trade.
 
@@ -46,22 +50,43 @@ def buy_signal(symbol, qty): # Other params can be added to more granularly cont
                             stop_loss = None,
                             trail_price = None,
                             trail_percent = None,
-                            notional = None
+                            notional = None     # By fractional shares by dollar amount
                         )
 
     return(result)
 
-# DELETE
-def sell_signal(order_id):
-    result = tradeapi.cancel_order(order_id = order_id)
+# POST sell order
+def sell_signal(symbol, qty): # Other params can be added to more granularly control the trade.
+
+    result = tradeapi.submit_order(symbol = symbol,
+                            qty = qty,       # Determine qty
+                            side = "sel",
+                            type = "market",
+                            time_in_force = "day",
+                            limit_price = None,
+                            stop_price = None,
+                            client_order_id = None,
+                            order_class = None,
+                            take_profit = None,
+                            stop_loss = None,
+                            trail_price = None,
+                            trail_percent = None,
+                            notional = None     # By fractional shares by dollar amount
+                        )
 
     return(result)
 
-def close_all_positions(): # Sell and close all orders.
+# # DELETE
+# def sell_signal(order_id):
+#     result = tradeapi.cancel_order(order_id = order_id)
 
-    result = tradeapi.cancel_all_orders()
+#     return(result)
 
-    return(result)
+# def close_all_positions(): # Sell and close all orders.
+
+#     result = tradeapi.cancel_all_orders()
+
+#     return(result)
 
 # Portfolio Information
 def list_positions():
